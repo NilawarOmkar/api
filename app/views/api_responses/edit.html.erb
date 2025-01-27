@@ -1,0 +1,12 @@
+<% content_for :title, "Editing api response" %>
+
+<h1>Editing api response</h1>
+
+<%= render "form", api_response: @api_response %>
+
+<br>
+
+<div>
+  <%= link_to "Show this api response", @api_response %> |
+  <%= link_to "Back to api responses", api_responses_path %>
+</div>

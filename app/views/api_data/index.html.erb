@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stored API Data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+    }
+    .response {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+    }
+    .response h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #333;
+    }
+    .response pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+<h1>Stored API Data</h1>
+
+<% if @parsed_responses.any? %>
+  <% @parsed_responses.each do |response| %>
+    <div class="response">
+      <h2>Response ID: <%= response["data"]["me"]["id"] %></h2>
+      <p><strong>First Name:</strong> <%= response["data"]["me"]["firstName"] %></p>
+      <p><strong>Last Name:</strong> <%= response["data"]["me"]["lastName"] %></p>
+      <p><strong>Email:</strong> <%= response["data"]["me"]["email"] %></p>
+      <p><strong>Tenant ID:</strong> <%= response["data"]["me"]["tenantId"] %></p>
+      
+      <h3>Current Tenant:</h3>
+      <p><strong>ID:</strong> <%= response["data"]["me"]["currentTenant"]["id"] %></p>
+      <p><strong>Name:</strong> <%= response["data"]["me"]["currentTenant"]["name"] %></p>
+
+      <h3>Products:</h3>
+      <% response["data"]["me"]["currentTenant"]["products"].each do |product| %>
+        <p><strong>Product ID:</strong> <%= product["id"] %></p>
+        <p><strong>Product Name:</strong> <%= product["name"] %></p>
+        <p><strong>Description:</strong> <%= product["description"] %></p>
+      <% end %>
+
+    </div>
+  <% end %>
+<% else %>
+  <p>No data available.</p>
+<% end %>
+
+</body>
+
+</html>

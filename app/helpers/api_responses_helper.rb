@@ -1,0 +1,2 @@
+module ApiResponsesHelper
+end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :api_responses
+  resources :locations
+  resources :financials
+  resources :loans
   resources :products
   resources :tenants
   resources :users
@@ -15,4 +19,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "fetch", to: "api_data#store"
+  root "api_data#index"
 end

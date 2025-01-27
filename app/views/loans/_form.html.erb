@@ -1,0 +1,67 @@
+<%= form_with(model: loan) do |form| %>
+  <% if loan.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+        <% loan.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :agreement_id, style: "display: block" %>
+    <%= form.text_field :agreement_id %>
+  </div>
+
+  <div>
+    <%= form.label :agreement_type, style: "display: block" %>
+    <%= form.text_field :agreement_type %>
+  </div>
+
+  <div>
+    <%= form.label :borrower_name, style: "display: block" %>
+    <%= form.text_field :borrower_name %>
+  </div>
+
+  <div>
+    <%= form.label :formatted_address, style: "display: block" %>
+    <%= form.text_field :formatted_address %>
+  </div>
+
+  <div>
+    <%= form.label :formatted_loan_type, style: "display: block" %>
+    <%= form.text_field :formatted_loan_type %>
+  </div>
+
+  <div>
+    <%= form.label :lender_branded_display_name, style: "display: block" %>
+    <%= form.text_field :lender_branded_display_name %>
+  </div>
+
+  <div>
+    <%= form.label :loan_id, style: "display: block" %>
+    <%= form.number_field :loan_id %>
+  </div>
+
+  <div>
+    <%= form.label :loan_number, style: "display: block" %>
+    <%= form.text_field :loan_number %>
+  </div>
+
+  <div>
+    <%= form.label :loan_type, style: "display: block" %>
+    <%= form.text_field :loan_type %>
+  </div>
+
+  <div>
+    <%= form.label :status_text, style: "display: block" %>
+    <%= form.text_field :status_text %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

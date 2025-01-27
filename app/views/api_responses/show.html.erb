@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @api_response %>
+
+<div>
+  <%= link_to "Edit this api response", edit_api_response_path(@api_response) %> |
+  <%= link_to "Back to api responses", api_responses_path %>
+
+  <%= button_to "Destroy this api response", @api_response, method: :delete %>
+</div>

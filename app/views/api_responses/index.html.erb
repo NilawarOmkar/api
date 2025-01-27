@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Api responses" %>
+
+<h1>Api responses</h1>
+
+<div id="api_responses">
+  <% @api_responses.each do |api_response| %>
+    <%= render api_response %>
+    <p>
+      <%= link_to "Show this api response", api_response %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New api response", new_api_response_path %>
